@@ -1,0 +1,188 @@
+/**
+ * Intercom-style Help Center home
+ */
+.helpCenterLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.heroBlock {
+  background: linear-gradient(135deg, #4DB8E8 0%, #2BA8D8 100%);
+  color: white;
+  padding: 24px 40px 48px;
+}
+
+.heroTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.heroHelpCenterLink {
+  font-size: 18px;
+  font-weight: 600;
+  color: white !important;
+  text-decoration: none;
+}
+
+.heroMenuBtn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.heroLang {
+  margin-left: auto;
+  font-size: 14px;
+  color: #fff;
+  cursor: default;
+}
+
+.heroLangIcon {
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.heroTitle {
+  margin: 0 0 24px 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.heroSearchWrap {
+  position: relative;
+  max-width: 600px;
+}
+
+.heroSearchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+
+.heroSearchInput {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.95);
+  color: #333;
+}
+
+.heroSearchInput::placeholder {
+  color: #666;
+}
+
+.heroSearchInput:focus {
+  outline: none;
+  background: white;
+}
+
+.helpCenterMain {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  width: 100%;
+}
+
+.collectionGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.collectionCard {
+  display: block;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #e8e8e8;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.collectionCard:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.collectionCardTitle {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.collectionCardDescription {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.collectionCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+.collectionCardAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2BA8D8;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.helpCenterFooter {
+  padding: 20px 40px;
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.helpCenterFooter a {
+  color: #2BA8D8;
+  text-decoration: none;
+}
+
+.footerSeparator {
+  margin: 0 6px;
+}
+
+@media (max-width: 996px) {
+  .heroBlock {
+    padding: 20px 20px 36px;
+  }
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+  .helpCenterMain {
+    padding: 32px 20px;
+  }
+}

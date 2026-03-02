@@ -1,0 +1,29 @@
+adeel:
+  name: Adeel Raza
+  title: Web Developer & eLearning Specialist
+  url: https://elearningevolve.com
+  image_url: https://github.com/AdeelisHere.png
+  page: true
+  socials:
+    x: AdeelRaza_
+    linkedin: adeel-raza
+    github: AdeelisHere
+    newsletter: https://elearningevolve.com
+yangshun:
+  name: Yangshun Tay
+  title: Ex-Meta Staff Engineer
+  url: https://linkedin.com/in/yangshun
+  image_url: https://github.com/yangshun.png
+  page: true
+
+slorber:
+  name: Sébastien Lorber
+  title: Docusaurus maintainer
+  url: https://sebastienlorber.com
+  image_url: https://github.com/slorber.png
+  page: true
+stephen-bowles:
+  name: Stephen Bowles
+  title: Documentation Expert
+  url: https://github.com/stephen-bowles
+  image_url: https://github.com/stephen-bowles.png
