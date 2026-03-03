@@ -3,7 +3,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Zoomy Documentation',
+  title: 'WP Zoomy Documentation',
   tagline: 'Search for articles...',
   favicon: 'img/favicon.ico',
 
@@ -11,11 +11,11 @@ const config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docs.wpzoomy.com',
   baseUrl: '/',
 
-  organizationName: 'facebook',
-  projectName: 'docusaurus',
+  organizationName: 'WPZoomy',
+  projectName: 'docs',
 
   onBrokenLinks: 'throw',
 
@@ -77,11 +77,11 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Help Center',
+        title: 'WP Zoomy Documentation',
         hideOnScroll: false,
         logo: {
-          alt: 'Help Center',
-          src: 'img/logo.svg',
+          alt: 'WP Zoomy Documentation',
+          src: 'https://wpzoomy.com/wp-content/uploads/2024/01/zoomy_logo-blue-1.png',
           href: '/',
         },
         items: [
@@ -90,8 +90,18 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [],
-        copyright: 'Help Center',
+        links: [
+          {
+            title: 'WP Zoomy',
+            items: [
+              {
+                label: 'WPZoomy.com',
+                href: 'https://wpzoomy.com',
+              },
+            ],
+          },
+        ],
+        copyright: 'WP Zoomy',
       },
       prism: {
         theme: prismThemes.github,

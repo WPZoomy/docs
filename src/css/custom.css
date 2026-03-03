@@ -404,3 +404,38 @@ article li {
 
 .help-center-search-page .navbar { display: none !important; }
 
+/* ========== WP Zoomy brand overrides ========== */
+:root {
+  --ifm-color-primary: #00b8ff;
+  --ifm-color-primary-dark: #00a3e0;
+  --ifm-color-primary-darker: #008bbf;
+  --ifm-color-primary-darkest: #00739e;
+  --ifm-color-primary-light: #33c6ff;
+  --ifm-color-primary-lighter: #66d4ff;
+  --ifm-color-primary-lightest: #99e2ff;
+
+  --ifm-background-color: #00b8ff;
+  --ifm-navbar-background-color: #00b8ff;
+  --ifm-footer-background-color: #00b8ff;
+
+  --ifm-font-color-base: #282932;
+  --ifm-link-color: #282932;
+  --ifm-footer-link-color: #282932;
+}
+
+html,
+body {
+  background-color: #00b8ff;
+  color: #282932;
+}
+
+.navbar {
+  background: #00b8ff !important;
+}
+
+.navbar__title,
+.navbar__link,
+.navbar__item {
+  color: #282932 !important;
+}
+
