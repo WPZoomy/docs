@@ -1,0 +1,131 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * CUSTOM: Only 2 modes — System (default) and Light. Dark mode removed.
+ * - Default: System mode (follows OS preference; no theme stored).
+ * - User can switch: System → Light, or Light → System (toggle between these only).
+ * - If stored value is ever "dark", it is forced to "light" on load.
+ */
+import React, {useEffect} from 'react';
+import clsx from 'clsx';
+import useIsBrowser from '@docusaurus/useIsBrowser';
+import {translate} from '@docusaurus/Translate';
+import IconLightMode from '@theme/Icon/LightMode';
+import IconSystemColorMode from '@theme/Icon/SystemColorMode';
+import styles from './styles.module.css';
+// The order of color modes is defined here, and can be customized with swizzle
+function getNextColorMode(colorMode, respectPrefersColorScheme) {
+  // 2-value transition
+  if (!respectPrefersColorScheme) {
+    return colorMode === 'light' ? null : 'light';
+  }
+  // Only Light and System (no Dark)
+  switch (colorMode) {
+    case null:
+      return 'light';
+    case 'light':
+      return null;
+    case 'dark':
+      return 'light';
+    default:
+      throw new Error(`unexpected color mode ${colorMode}`);
+  }
+}
+function getColorModeLabel(colorMode) {
+  switch (colorMode) {
+    case null:
+      return translate({
+        message: 'system mode',
+        id: 'theme.colorToggle.ariaLabel.mode.system',
+        description: 'The name for the system color mode',
+      });
+    case 'light':
+      return translate({
+        message: 'light mode',
+        id: 'theme.colorToggle.ariaLabel.mode.light',
+        description: 'The name for the light color mode',
+      });
+    case 'dark':
+      return translate({
+        message: 'light mode',
+        id: 'theme.colorToggle.ariaLabel.mode.light',
+        description: 'The name for the light color mode',
+      });
+    default:
+      throw new Error(`unexpected color mode ${colorMode}`);
+  }
+}
+function getColorModeAriaLabel(colorMode) {
+  return translate(
+    {
+      message: 'Switch between dark and light mode (currently {mode})',
+      id: 'theme.colorToggle.ariaLabel',
+      description: 'The ARIA label for the color mode toggle',
+    },
+    {
+      mode: getColorModeLabel(colorMode),
+    },
+  );
+}
+function CurrentColorModeIcon() {
+  // 3 icons are always rendered for technical reasons
+  // We use "data-theme-choice" to render the correct one
+  // This must work even before React hydrates
+  return (
+    <>
+      <IconLightMode
+        // a18y is handled at the button level,
+        // not relying on button content (svg icons)
+        aria-hidden
+        className={clsx(styles.toggleIcon, styles.lightToggleIcon)}
+      />
+      <IconSystemColorMode
+        aria-hidden
+        className={clsx(styles.toggleIcon, styles.systemToggleIcon)}
+      />
+    </>
+  );
+}
+function ColorModeToggle({
+  className,
+  buttonClassName,
+  respectPrefersColorScheme,
+  value,
+  onChange,
+}) {
+  const isBrowser = useIsBrowser();
+
+  useEffect(() => {
+    if (value === 'dark' && isBrowser && onChange) {
+      onChange('light');
+    }
+  }, [value, isBrowser, onChange]);
+
+  return (
+    <div className={clsx(styles.toggle, className)}>
+      <button
+        className={clsx(
+          'clean-btn',
+          styles.toggleButton,
+          !isBrowser && styles.toggleButtonDisabled,
+          buttonClassName,
+        )}
+        type="button"
+        onClick={() =>
+          onChange(getNextColorMode(value, respectPrefersColorScheme))
+        }
+        disabled={!isBrowser}
+        title={getColorModeLabel(value)}
+        aria-label={getColorModeAriaLabel(value)}>
+        <CurrentColorModeIcon />
+      </button>
+    </div>
+  );
+}
+export default React.memo(ColorModeToggle);
+

@@ -100,19 +100,50 @@ article {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Headings Style */
-article h2 {
-  color: #1e40af;
+/* Headings Style - all 9 articles (h1–h6) */
+.help-center-article .theme-doc-markdown h1,
+.help-center-article .theme-doc-markdown h2,
+.help-center-article .theme-doc-markdown h3,
+.help-center-article .theme-doc-markdown h4,
+.help-center-article .theme-doc-markdown h5,
+.help-center-article .theme-doc-markdown h6,
+.help-center-article .markdown h1,
+.help-center-article .markdown h2,
+.help-center-article .markdown h3,
+.help-center-article .markdown h4,
+.help-center-article .markdown h5,
+.help-center-article .markdown h6 {
+  color: #14beff;
+}
+
+.help-center-article .theme-doc-markdown h1,
+.help-center-article .markdown h1 {
+  color: #000;
+}
+
+.help-center-article .theme-doc-markdown h2,
+.help-center-article .markdown h2 {
   font-weight: 700;
   margin-top: 2rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #e5e7eb;
 }
 
-article h3 {
-  color: #2563eb;
+.help-center-article .theme-doc-markdown h3,
+.help-center-article .markdown h3 {
   font-weight: 600;
   margin-top: 1.5rem;
+}
+
+/* Links in all 9 articles - clickable words open tab/page → #14beff */
+.help-center-article .theme-doc-markdown a,
+.help-center-article .markdown a {
+  color: #14beff;
+}
+.help-center-article .theme-doc-markdown a:hover,
+.help-center-article .markdown a:hover {
+  color: #0ea5e9;
+  text-decoration: underline;
 }
 
 /* Lists Styling */
@@ -151,11 +182,11 @@ article li {
 }
 
 .table-of-contents a:hover {
-  color: #2563eb;
+  color: #14beff;
 }
 
 .table-of-contents .table-of-contents__link--active {
-  color: #2563eb;
+  color: #14beff;
   font-weight: 600;
 }
 
@@ -177,6 +208,11 @@ article li {
 }
 .navbar__toggle {
   color: white;
+}
+
+/* Hide navbar logo and "Help Center" text (hero has its own; keep All Collections link) */
+.navbar__brand {
+  display: none !important;
 }
 
 /* Hide default navbar on Help Center home (custom hero used) */
@@ -404,3 +440,48 @@ article li {
 
 .help-center-search-page .navbar { display: none !important; }
 
+
+/* Custom hash-link (anchor next to headings) */
+.hash-link {
+  color: #14beff;
+  opacity: 0.6;
+  padding-left: 0.5rem;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.hash-link:hover,
+*:hover > .hash-link,
+.hash-link:focus {
+  color: #14beff;
+  opacity: 1;
+}
+
+/* Sidebar (docs nav) - same as TOC: hover & active #14beff */
+.theme-doc-sidebar-container .menu__link:hover,
+[class*="sidebar_njMd"] .menu__link:hover,
+.theme-doc-sidebar-container .menu__link--active,
+[class*="sidebar_njMd"] .menu__link--active {
+  color: #14beff !important;
+}
+
+/* Pagination nav label (Previous / Next) */
+.pagination-nav__label {
+  color: #14beff !important;
+}
+
+/* Hide dark mode icon in color toggle (only Light + System) */
+[class*="darkToggleIcon"] {
+  display: none !important;
+}
+
+/* Force article content readable when dark theme is ever applied (dark mode disabled) */
+[data-theme="dark"] .help-center-article,
+[data-theme="dark"] .theme-doc-markdown,
+[data-theme="dark"] .markdown {
+  background: #fff !important;
+  color: #1a1a1a !important;
+}
+[data-theme="dark"] .help-center-article a {
+  color: #14beff !important;
+}
