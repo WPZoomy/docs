@@ -15,9 +15,11 @@
 }
 
 .heroTop {
+  flex-direction: column;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
 }
 
@@ -185,4 +187,23 @@
   .helpCenterMain {
     padding: 32px 20px;
   }
+}
+
+.heroLogoWrap {
+  align-self: flex-start;
+  width: fit-content;
+  display: block;
+  margin-bottom: 40px;
+}
+.heroLogo {
+  display: block;
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+.heroTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

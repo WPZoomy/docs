@@ -162,23 +162,48 @@ article li {
   border-left: 4px solid #22c55e;
 }
 
-/* Table of Contents - Keep Right Side */
+/* Table of Contents - Narrow right column, clean minimal (reference style) */
+.help-center-doc-page .row .col.col--3,
+.row > .col.col--3,
+.theme-doc-doc-page .row .col.col--3 {
+  flex: 0 0 220px !important;
+  min-width: 200px;
+  max-width: 22% !important;
+}
+
+/* Main content - take maximum space (more than TOC) */
+.help-center-doc-page .row > .col:not(.col--3),
+.theme-doc-doc-page .row > .col:not(.col--3) {
+  flex: 1 1 auto !important;
+  min-width: 70%;
+
+}
+
 .table-of-contents {
   position: sticky;
   top: 80px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-left: 0;
+  border-left: 1px solid #e5e7eb;
+  line-height: 1.45;
+  font-size: 0.8125rem;
 }
 
 .table-of-contents li {
-  margin: 0.3rem 0;
+  margin: 0.35rem 0;
 }
 
 .table-of-contents a {
-  color: #64748b;
-  font-size: 0.9rem;
+  color: #374151;
+  font-size: 0.8125rem;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.15s;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: block;
 }
 
 .table-of-contents a:hover {
@@ -227,9 +252,11 @@ article li {
   padding: 24px 40px 48px;
 }
 .help-center-hero-top {
+  flex-direction: column;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
 }
 .help-center-hero-link {
@@ -267,7 +294,7 @@ article li {
   pointer-events: none;
 }
 .help-center-hero-search-input {
-  width: 100%;
+
   padding: 14px 16px 14px 48px;
   border: none;
   border-radius: 24px;
@@ -332,7 +359,7 @@ article li {
 }
 .help-center-doc-author {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   margin-bottom: 24px;
   padding-bottom: 20px;
@@ -345,7 +372,7 @@ article li {
   background: #2BA8D8;
   color: white;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   font-size: 18px;
   font-weight: bold;
@@ -457,6 +484,12 @@ article li {
   opacity: 1;
 }
 
+/* Scroll to hash: leave space so anchored heading is not under hero */
+.help-center-doc-page .help-center-article [id],
+.help-center-article [id] {
+  scroll-margin-top: 140px;
+}
+
 /* Sidebar (docs nav) - same as TOC: hover & active #14beff */
 .theme-doc-sidebar-container .menu__link:hover,
 [class*="sidebar_njMd"] .menu__link:hover,
@@ -484,4 +517,30 @@ article li {
 }
 [data-theme="dark"] .help-center-article a {
   color: #14beff !important;
+}
+
+/* Hide doc sidebar on help center doc pages */
+.help-center-doc-page .theme-doc-sidebar-container {
+  display: none !important;
+}
+
+
+/* Zoomy logo above Help Center - compact size like main site header */
+.help-center-hero-logo-wrap {
+  align-self: flex-start;
+  width: fit-content;
+  display: block;
+  margin-bottom: 15px;
+}
+.help-center-hero-logo {
+  height: 10px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.help-center-hero-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }

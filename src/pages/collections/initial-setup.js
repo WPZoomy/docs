@@ -58,7 +58,7 @@ export default function CollectionInitialSetup() {
         <footer className={styles.collectionFooter}>
           <Link to="/">Help Center</Link>
           <span className={styles.footerSep}> · </span>
-          <a href="https://www.intercom.com/intercom-link?company=Zoomy&solution=customer-support&utm_campaign=intercom-link&utm_content=We+run+on+Intercom&utm_medium=help-center&utm_referrer=https%3A%2F%2Fintercom.help%2Fwpzoomy%2Fen&utm_source=desktop-web" target="_blank" rel="noopener noreferrer">We run on Intercom</a>
+          <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer">Back to official Zoomy site</a>
         </footer>
       </div>
     </Layout>

@@ -115,6 +115,7 @@ export default function DocItemLayout({ children }) {
   const title = metadata.title || frontMatter.title || 'Documentation';
   const relatedArticles = getRelatedArticles(metadata.id || '', title);
 
+
   return (
     <div className="row">
       <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>

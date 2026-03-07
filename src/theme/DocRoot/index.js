@@ -22,12 +22,14 @@ export default function DocRoot(props) {
   return (
     <HtmlClassNameProvider className={clsx(ThemeClassNames.page.docsDocPage, 'help-center-doc-page')}>
       <DocsSidebarProvider name={sidebarName} items={sidebarItems}>
+        
         <HelpCenterHero showTitle={false} showSearch={true} />
         <DocRootLayout>{docElement}</DocRootLayout>
+        
         <footer className="help-center-doc-footer">
           <Link to="/">Help Center</Link>
           <span className="help-center-doc-footer-sep"> · </span>
-          <a href="https://www.intercom.com/intercom-link?company=Zoomy&solution=customer-support&utm_campaign=intercom-link&utm_content=We+run+on+Intercom&utm_medium=help-center&utm_referrer=https%3A%2F%2Fintercom.help%2Fwpzoomy%2Fen&utm_source=desktop-web" target="_blank" rel="noopener noreferrer">We run on Intercom</a>
+          <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer">Back to official Zoomy site</a>
         </footer>
       </DocsSidebarProvider>
     </HtmlClassNameProvider>

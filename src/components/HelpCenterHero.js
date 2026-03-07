@@ -30,8 +30,14 @@ export default function HelpCenterHero({ showTitle = true, showSearch = true }) 
   return (
     <header className={`help-center-hero-block${!showTitle ? " help-center-hero-block--compact" : ""}`}>
       <div className="help-center-hero-top">
+        <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer" className="help-center-hero-logo-wrap" aria-label="Zoomy">
+          <img src={`${siteConfig.baseUrl}img/zoomy-logo.png`} alt="Zoomy" className="help-center-hero-logo" />
+        </a>
+         <div className="help-center-hero-top-row">
         <Link to="/" className="help-center-hero-link">Help Center</Link>
-        <span className="help-center-hero-lang" aria-label="Language"><span className="help-center-hero-lang-icon" aria-hidden>🌐</span> English</span>
+        <span className="help-center-hero-lang" aria-label="Language"><span className="help-center-hero-lang-icon" aria-hidden>🌐</span>
+         English</span>
+        </div>
       </div>
       {showTitle && (
         <h1 className="help-center-hero-title">{siteConfig.title}</h1>

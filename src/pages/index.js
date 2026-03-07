@@ -50,8 +50,13 @@ export default function Home() {
       <div className={styles.helpCenterLayout}>
         <header className={styles.heroBlock}>
           <div className={styles.heroTop}>
+            <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer" className={styles.heroLogoWrap} aria-label="Zoomy">
+              <img src={`${siteConfig.baseUrl}img/zoomy-logo.png`} alt="Zoomy" className={styles.heroLogo} />
+            </a>
+             <div className={styles.heroTopRow}>
             <Link to="/" className={styles.heroHelpCenterLink}>Help Center</Link>
             <span className={styles.heroLang} aria-label="Language"><span className={styles.heroLangIcon} aria-hidden>🌐</span> English</span>
+            </div>
           </div>
           <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
           <form onSubmit={handleSearchSubmit} className={styles.heroSearchWrap}>
@@ -76,7 +81,7 @@ export default function Home() {
         <footer className={styles.helpCenterFooter}>
           <Link to="/">Help Center</Link>
           <span className={styles.footerSeparator}> · </span>
-          <a href="https://www.intercom.com/intercom-link?company=Zoomy&solution=customer-support&utm_campaign=intercom-link&utm_content=We+run+on+Intercom&utm_medium=help-center&utm_referrer=https%3A%2F%2Fintercom.help%2Fwpzoomy%2Fen&utm_source=desktop-web" target="_blank" rel="noopener noreferrer">We run on Intercom</a>
+          <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer">Back to official Zoomy site</a>
         </footer>
       </div>
     </Layout>

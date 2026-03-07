@@ -11,8 +11,9 @@ const config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'http://localhost',
   baseUrl: '/',
+
 
   organizationName: 'facebook',
   projectName: 'docusaurus',
@@ -23,6 +24,18 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          { from: '/docs/category/tutorial---basics', to: '/collections/features' },
+          { from: '/docs/category/tutorial---extras', to: '/collections/features' },
+        ],
+      },
+    ],
+  ],
 
   customFields: {
     collections: [
