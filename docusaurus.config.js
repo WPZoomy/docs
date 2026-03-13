@@ -11,7 +11,7 @@ const config = {
     v4: true,
   },
 
-  url: 'http://localhost',
+  url: 'http://localhost:3000',
   baseUrl: '/',
 
 
@@ -88,8 +88,8 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: false,
+        disableSwitch: true,
+        respectPrefersColorScheme: true,
       },
       navbar: {
         title: 'Help Center',

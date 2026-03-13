@@ -139,7 +139,7 @@ export default function HelpCenterHeader({ onSearch, onLanguageChange }) {
             onChange={handleSearch}
             style={{
               width: '100%',
-              padding: '14px 16px 14px 48px',
+              padding: searchQuery.trim() ? '14px 44px 14px 48px' : '14px 16px 14px 48px',
               border: 'none',
               borderRadius: '8px',
               fontSize: '16px',
@@ -154,6 +154,29 @@ export default function HelpCenterHeader({ onSearch, onLanguageChange }) {
               e.target.style.background = 'rgba(255,255,255,0.95)';
             }}
           />
+          {searchQuery.trim() && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              aria-label="Clear search"
+              title="Clear"
+              style={{
+                position: 'absolute',
+                right: '12px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '20px',
+                lineHeight: 1,
+                color: '#666',
+                padding: '4px'
+              }}
+            >
+              ×
+            </button>
+          )}
         </div>
       </div>
     </header>

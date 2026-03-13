@@ -1,97 +1,15 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import Link from '@docusaurus/Link';
 import { Search, ArrowRight } from 'lucide-react';
+import { helpCenterArticles, filterArticles } from '@site/src/data/helpCenterArticles';
 
 export default function HelpCenterSearch({ query = '' }) {
   const [searchQuery, setSearchQuery] = useState(query);
+  useEffect(() => {
+    setSearchQuery(query);
+  }, [query]);
 
-const allArticles = [
-    {
-      id: 1,
-      title: 'Getting Started',
-      category: 'Initial Setup',
-      description: 'We will walk you through the process of connecting your Zoom account with your Zoomy Wordpress plugin on your website.',
-      link: '/docs/intro',
-      keywords: ['getting started', 'zoom account', 'wordpress plugin', 'setup', 'zoomy', 'connect']
-    },
-    {
-      id: 2,
-      title: 'Creating Server-to-Server OAuth App',
-      category: 'Initial Setup',
-      description: 'Generate API credentials from your Zoom account to integrate with WordPress. Step-by-step guide to create a Zoom App for Zoomy.',
-      link: '/docs/tutorial-basics/create-a-document',
-      keywords: ['oauth', 'api credentials', 'server', 'zoom', 'integration', 'app marketplace', 'client id', 'client secret']
-    },
-    {
-      id: 3,
-      title: 'Setting Up the Instructor Role Add On',
-      category: 'Zoomy features & settings',
-      description: 'Configure the Instructor Role addon with LearnDash and WISDM for Zoomy.',
-      link: '/docs/tutorial-basics/setting-up-instructor-role-addon',
-      keywords: ['instructor', 'addon', 'learndash', 'wisdm', 'role', 'extension']
-    },
-    {
-      id: 4,
-      title: 'Multiple hosts on Zoom',
-      category: 'Zoomy features & settings',
-      description: 'Configure multiple hosts for your Zoom meetings and webinars with Zoomy.',
-      link: '/docs/tutorial-extras/multiple-hosts-on-zoom',
-      keywords: ['multiple hosts', 'zoom', 'hosts', 'configuration', 'add user', 'meeting host']
-    },
-    {
-      id: 5,
-      title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy',
-      category: 'Zoomy features & settings',
-      description: 'Set up recurring Zoom meetings or webinars from your WordPress dashboard.',
-      link: '/docs/tutorial-basics/create-a-page',
-      keywords: ['recurring meetings', 'webinars', 'addon', 'schedule', 'countdown', 'recurring']
-    },
-    {
-      id: 6,
-      title: 'Monetize Meeting ADD On',
-      category: 'Zoomy features & settings',
-      description: 'Sell Zoom meetings with Easy Digital Downloads. Create paid meeting downloads.',
-      link: '/docs/tutorial-basics/monetize-meeting-addon',
-      keywords: ['monetize', 'sell', 'meeting', 'addon', 'edd', 'easy digital downloads', 'payment']
-    },
-    {
-      id: 7,
-      title: 'Embedding Third-Party Tools on a Zoom Meeting Shortcode Page',
-      category: 'Zoomy features & settings',
-      description: 'Embed YouTube, iframes and third-party tools on the Zoom meeting shortcode page.',
-      link: '/docs/tutorial-basics/embedding-third-party-tools-shortcode',
-      keywords: ['embed', 'third party', 'iframe', 'shortcode', 'youtube', 'credentialless']
-    },
-    {
-      id: 8,
-      title: 'How to embed Zoom Webinar on your website',
-      category: 'Zoomy features & settings',
-      description: 'Steps to embed Zoom webinars on your website with Zoomy shortcode and Gutenberg.',
-      link: '/docs/tutorial-basics/how-to-embed-zoom-webinar',
-      keywords: ['embed webinar', 'zoom webinar', 'website', 'shortcode', 'gutenberg', 'add webinar']
-    },
-    {
-      id: 9,
-      title: 'Embed Zoom Meeting on WordPress',
-      category: 'Zoomy features & settings',
-      description: 'Add Zoom meetings to your WordPress posts or pages using Zoomy Gutenberg block or shortcode.',
-      link: '/docs/tutorial-basics/embed-zoom-meeting-on-wordpress',
-      keywords: ['embed meeting', 'zoom meeting', 'wordpress', 'gutenberg block', 'shortcode', 'elementor']
-    }
-  ];
-
-  const filteredArticles = useMemo(() => {
-    if (!searchQuery.trim()) return allArticles;
-
-    const query = searchQuery.toLowerCase();
-    return allArticles.filter(article => {
-      const matchTitle = article.title.toLowerCase().includes(query);
-      const matchDescription = article.description.toLowerCase().includes(query);
-      const matchKeywords = article.keywords.some(kw => kw.includes(query));
-      const matchCategory = article.category.toLowerCase().includes(query);
-
-      return matchTitle || matchDescription || matchKeywords || matchCategory;
-    });
-  }, [searchQuery]);
+const filteredArticles = useMemo(() => filterArticles(helpCenterArticles, searchQuery), [searchQuery]);
 
   return (
     <div style={{ minHeight: '100vh', background: '#f8f9fa' }}>
@@ -105,13 +23,19 @@ const allArticles = [
           maxWidth: '1200px',
           margin: '0 auto'
         }}>
-          <h1 style={{
-            margin: '0 0 20px 0',
-            fontSize: '24px',
-            fontWeight: '600'
-          }}>
+          <Link
+            to="/"
+            style={{
+              margin: '0 0 20px 0',
+              fontSize: '24px',
+              fontWeight: '600',
+              color: 'white',
+              textDecoration: 'none',
+              display: 'inline-block'
+            }}
+          >
             Help Center
-          </h1>
+          </Link>
 
           {/* Search Bar */}
           <div style={{
@@ -135,7 +59,7 @@ const allArticles = [
               autoFocus
               style={{
                 width: '100%',
-                padding: '14px 16px 14px 48px',
+                padding: searchQuery.trim() ? '14px 44px 14px 48px' : '14px 16px 14px 48px',
                 border: 'none',
                 borderRadius: '8px',
                 fontSize: '16px',
@@ -150,6 +74,29 @@ const allArticles = [
                 e.target.style.background = 'rgba(255,255,255,0.95)';
               }}
             />
+            {searchQuery.trim() && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+                title="Clear"
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '20px',
+                  lineHeight: 1,
+                  color: '#666',
+                  padding: '4px'
+                }}
+              >
+                ×
+              </button>
+            )}
           </div>
         </div>
       </header>

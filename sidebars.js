@@ -18,7 +18,7 @@ const sidebars = {
       items: [
         'tutorial-basics/setting-up-instructor-role-addon',
         'tutorial-extras/multiple-hosts-on-zoom',
-        'tutorial-basics/create-a-page',
+        'tutorial-basics/setting-up-the-recurring-meetings-webinars-addon-for-zoomy',
         'tutorial-basics/monetize-meeting-addon',
         'tutorial-basics/embedding-third-party-tools-shortcode',
         'tutorial-basics/how-to-embed-zoom-webinar',

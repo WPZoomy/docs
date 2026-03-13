@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
+import { useLocation } from '@docusaurus/router';
 import HelpCenterSearch from '@site/src/components/Helpcentersearch';
 
-function useSearchQuery() {
-  const [query, setQuery] = useState('');
-  useEffect(() => {
-    const params = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
-    setQuery(params.get('q') || '');
-  }, []);
-  return query;
-}
-
 export default function SearchPage() {
-  const initialQuery = useSearchQuery();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search || '');
+  const initialQuery = params.get('q') || '';
+
   return (
     <Layout title="Search" description="Search for articles" noFooter wrapperClassName="help-center-search-page">
       <HelpCenterSearch key={initialQuery} query={initialQuery} />

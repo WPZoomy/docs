@@ -11,7 +11,7 @@
 .heroBlock {
   background: linear-gradient(135deg, #4DB8E8 0%, #2BA8D8 100%);
   color: white;
-  padding: 24px 40px 48px;
+  padding: 8px 40px 28px;
 }
 
 .heroTop {
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .heroHelpCenterLink {
@@ -53,7 +53,7 @@
 }
 
 .heroTitle {
-  margin: 0 0 24px 0;
+  margin: 0 0 16px 0;
   font-size: 2.25rem;
   font-weight: 700;
   color: white;
@@ -76,11 +76,33 @@
 
 .heroSearchInput {
   width: 100%;
-  padding: 14px 16px 14px 48px;
+  padding: 14px 40px 14px 48px;
   border: none;
   border-radius: 24px;
   font-size: 16px;
   background: rgba(255,255,255,0.95);
+  color: #333;
+}
+.heroSearchInput::-webkit-search-cancel-button,
+.heroSearchInput::-webkit-search-decoration {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.heroSearchClear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  color: #666;
+  padding: 4px;
+}
+.heroSearchClear:hover {
   color: #333;
 }
 
@@ -179,7 +201,7 @@
 
 @media (max-width: 996px) {
   .heroBlock {
-    padding: 20px 20px 36px;
+    padding: 6px 20px 24px;
   }
   .heroTitle {
     font-size: 1.75rem;

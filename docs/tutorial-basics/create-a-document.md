@@ -17,16 +17,17 @@ In order for Zoomy to connect with Zoom, you need to first create a OAuth App wi
 
 For Zoomy to connect with Zoom, you need to first create an OAuth App with your Zoom account. This part can feel technical, but just follow the steps and you will be up and running in no time at all!
 
-* First of all, log in to the **Zoom App Marketplace** with an **owner**/**admin-level** account.
+* First of all, log in to the [Zoom App Marketplace](https://marketplace.zoom.us/) with an **owner**/**admin-level** account.
 * Click on Develop -> Build Server-to-Server OAuth App and create this app.  
   **Note:** If you can't see the Server-to-Server OAuth app type on this screen then refer to this Zoom [guide](https://developers.zoom.us/docs/internal-apps/s2s-oauth/).
-* Copy the App credentials i.e. Account ID, Client ID, and Client Secret. Add these values inside your plugin settings under,  
-  **Zoom Meetings -> Settings -> Setup -> Server-to-Server OAuth**
+
 
 ![Develop -> Build App](/img/zoom-develop-build-app.png)
 
 ![Server to Server OAuth App selection](/img/zoom-server-to-server-oauth-select.png)
 
+* Copy the App credentials i.e. Account ID, Client ID, and Client Secret. Add these values inside your plugin settings under,  
+  **Zoom Meetings -> Settings -> Setup -> Server-to-Server OAuth**
 
 ## 2. Event Subscriptions
 

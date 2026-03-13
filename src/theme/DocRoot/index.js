@@ -23,7 +23,7 @@ export default function DocRoot(props) {
     <HtmlClassNameProvider className={clsx(ThemeClassNames.page.docsDocPage, 'help-center-doc-page')}>
       <DocsSidebarProvider name={sidebarName} items={sidebarItems}>
         
-        <HelpCenterHero showTitle={false} showSearch={true} />
+        <HelpCenterHero showTitle={false} showSearch={true} searchOnCurrentPage={true} />
         <DocRootLayout>{docElement}</DocRootLayout>
         
         <footer className="help-center-doc-footer">

@@ -17,7 +17,7 @@ const ALL_ARTICLES = [
   { title: 'Getting Started', link: '/docs/intro' },
   { title: 'Creating Server-to-Server OAuth App', link: '/docs/tutorial-basics/create-a-document' },
   { title: 'Multiple hosts on Zoom', link: '/docs/tutorial-extras/multiple-hosts-on-zoom' },
-  { title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy', link: '/docs/tutorial-basics/create-a-page' },
+  { title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy', link: '/docs/tutorial-basics/setting-up-the-recurring-meetings-webinars-addon-for-zoomy' },
   { title: 'How to embed Zoom Webinar on your website', link: '/docs/tutorial-basics/how-to-embed-zoom-webinar' },
   { title: 'Setting Up the Instructor Role Add On', link: '/docs/tutorial-basics/setting-up-instructor-role-addon' },
   { title: 'Monetize Meeting ADD On', link: '/docs/tutorial-basics/monetize-meeting-addon' },
@@ -87,8 +87,9 @@ function useDocTOC() {
   const windowSize = useWindowSize();
   const hidden = frontMatter.hide_table_of_contents;
   const canRender = !hidden && toc.length > 0;
-  const mobile = canRender ? <DocItemTOCMobile /> : undefined;
-  const desktop = canRender && (windowSize === 'desktop' || windowSize === 'ssr') ? <DocItemTOCDesktop /> : undefined;
+  // Disable default mobile TOC; use our own desktop TOC based on toc data
+  const mobile = undefined;
+  const desktop = canRender ? toc : undefined;
   return { hidden, mobile, desktop };
 }
 
@@ -164,7 +165,21 @@ export default function DocItemLayout({ children }) {
           <DocItemPaginator />
         </div>
       </div>
-      {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
+      {docTOC.desktop && (
+        <div className="col col--3">
+          <div className="thin-scrollbar theme-doc-toc-desktop">
+            <ul className="table-of-contents table-of-contents__left-border">
+              {docTOC.desktop.map((item, idx) => (
+                <li key={item.id || idx} className="table-of-contents__item">
+                  <a href={`#${item.id}`} className="table-of-contents__link">
+                    {item.value}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

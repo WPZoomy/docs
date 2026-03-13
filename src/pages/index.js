@@ -50,12 +50,8 @@ export default function Home() {
       <div className={styles.helpCenterLayout}>
         <header className={styles.heroBlock}>
           <div className={styles.heroTop}>
-            <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer" className={styles.heroLogoWrap} aria-label="Zoomy">
-              <img src={`${siteConfig.baseUrl}img/zoomy-logo.png`} alt="Zoomy" className={styles.heroLogo} />
-            </a>
-             <div className={styles.heroTopRow}>
-            <Link to="/" className={styles.heroHelpCenterLink}>Help Center</Link>
-            <span className={styles.heroLang} aria-label="Language"><span className={styles.heroLangIcon} aria-hidden>🌐</span> English</span>
+            <div className={styles.heroTopRow}>
+              <Link to="/" className={styles.heroHelpCenterLink}>Help Center</Link>
             </div>
           </div>
           <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
@@ -69,6 +65,17 @@ export default function Home() {
               className={styles.heroSearchInput}
               aria-label="Search for articles"
             />
+            {searchQuery.trim() && (
+              <button
+                type="button"
+                className={styles.heroSearchClear}
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+                title="Clear"
+              >
+                ×
+              </button>
+            )}
           </form>
         </header>
         <main className={styles.helpCenterMain}>

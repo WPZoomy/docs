@@ -13,7 +13,7 @@ const collection = {
   articles: [
     { title: 'Setting Up the Instructor Role Add On', description: '', link: '/docs/tutorial-basics/setting-up-instructor-role-addon' },
     { title: 'Multiple hosts on Zoom', description: '', link: '/docs/tutorial-extras/multiple-hosts-on-zoom' },
-    { title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy', description: '', link: '/docs/tutorial-basics/create-a-page' },
+    { title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy', description: '', link: '/docs/tutorial-basics/setting-up-the-recurring-meetings-webinars-addon-for-zoomy' },
     { title: 'Monetize Meeting ADD On', description: '', link: '/docs/tutorial-basics/monetize-meeting-addon' },
     { title: 'Embedding Third-Party Tools on a Zoom Meeting Shortcode Page', description: 'Embedding Third-Party Tools on a Zoom Meeting Page', link: '/docs/tutorial-basics/embedding-third-party-tools-shortcode' },
     { title: 'How to embed Zoom Webinar on your website', description: 'Steps to embed Zoom webinars on your website.', link: '/docs/tutorial-basics/how-to-embed-zoom-webinar' },
