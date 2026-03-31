@@ -1,13 +1,16 @@
 ---
 sidebar_position: 4
-title: Monetize Meeting ADD On
-sidebar_label: Monetize Meeting ADD On
-collection: Zoomy features & settings
-author: Stephen Bowles
+title: Monetize Meeting Addon
+sidebar_label: Monetize Meeting Addon
+collection: Zoomy Features & Settings
+author: Teams Wpzoomy
 updated: over 2 years ago
 ---
+# Monetize Meeting AddOn
 
-# Monetize Meeting ADD On
+
+
+<AuthorBlock />
 
 ## Prerequisites
 

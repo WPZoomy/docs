@@ -23,13 +23,11 @@ export default function DocRoot(props) {
     <HtmlClassNameProvider className={clsx(ThemeClassNames.page.docsDocPage, 'help-center-doc-page')}>
       <DocsSidebarProvider name={sidebarName} items={sidebarItems}>
         
-        <HelpCenterHero showTitle={false} showSearch={true} searchOnCurrentPage={true} />
+        <HelpCenterHero showTitle={true} showSearch={true} searchOnCurrentPage={true} />
         <DocRootLayout>{docElement}</DocRootLayout>
         
         <footer className="help-center-doc-footer">
-          <Link to="/">Help Center</Link>
-          <span className="help-center-doc-footer-sep"> · </span>
-          <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer">Back to official Zoomy site</a>
+                    <a href="https://wpzoomy.com/" target="_blank" rel="noopener noreferrer">Back to official Zoomy site</a>
         </footer>
       </DocsSidebarProvider>
     </HtmlClassNameProvider>

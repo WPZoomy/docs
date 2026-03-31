@@ -3,17 +3,20 @@ sidebar_position: 2
 title: Creating Server-to-Server OAuth App
 sidebar_label: Creating Server-to-Server OAuth App
 collection: Initial Setup
-author: Stephen Bowles
+author: Teams Wpzoomy
 updated: over 11 months ago
 ---
-
 # Creating Server-to-Server OAuth App
+
+
 
 This is a step-by-step guide to help you setup create a Zoom App to integrate with the Zoomy plugin.
 
+<AuthorBlock />
+
 In order for Zoomy to connect with Zoom, you need to first create a OAuth App with your Zoom account. This part can feel technical, but just follow the steps and you will be up and running in no time at all!
 
-## 1. Create a Server-to-Server OAuth App
+## 1. Create OAuth App
 
 For Zoomy to connect with Zoom, you need to first create an OAuth App with your Zoom account. This part can feel technical, but just follow the steps and you will be up and running in no time at all!
 
@@ -50,7 +53,7 @@ Events Subscription allows the Zoom plugin to listen for changes on your Zoom ac
 ![Add Event Subcription](image5.png)
 
 
-### Event types
+### Event Types
 
 **Meeting & Webinar:**
 * Start Meeting/Webinar
@@ -171,6 +174,6 @@ Another app is required to enable your users to join Zoom meetings on the fronte
 ![Surface check to enable the Webinars option ](image12.png)
 
 
-### Note: There is no need to fill in any other details or publish this app. You are done.
+### Note: There is no need to fill in any other details or publish this app . You are done.
 
 That's all, after completing all these steps you should be up and running with the Zoomy WordPress plugin!

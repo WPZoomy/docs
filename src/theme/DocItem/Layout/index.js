@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import { useWindowSize } from '@docusaurus/theme-common';
@@ -14,7 +14,7 @@ import ContentVisibility from '@theme/ContentVisibility';
 import styles from './styles.module.css';
 
 const ALL_ARTICLES = [
-  { title: 'Getting Started', link: '/docs/intro' },
+  { title: 'Getting Started With WPZoomy Docs – Complete Guide', link: '/docs/intro' },
   { title: 'Creating Server-to-Server OAuth App', link: '/docs/tutorial-basics/create-a-document' },
   { title: 'Multiple hosts on Zoom', link: '/docs/tutorial-extras/multiple-hosts-on-zoom' },
   { title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy', link: '/docs/tutorial-basics/setting-up-the-recurring-meetings-webinars-addon-for-zoomy' },
@@ -28,27 +28,27 @@ const ALL_ARTICLES = [
 // Official site: Creating Server-to-Server OAuth App page has these 4 related (no Multiple hosts on Zoom, no self)
 const RELATED_BY_DOC = {
   'tutorial-basics/create-a-document': [
-    'Getting Started',
+    'Getting Started With WPZoomy Docs – Complete Guide',
     'Setting up the Recurring Meetings/Webinars Addon for Zoomy',
     'How to embed Zoom Webinar on your website',
     'Embed Zoom Meeting on WordPress',
   ],
   'tutorial-basics/setting-up-instructor-role-addon': [
-    'Getting Started',
+    'Getting Started With WPZoomy Docs – Complete Guide',
     'Creating Server-to-Server OAuth App',
     'Multiple hosts on Zoom',
     'Setting up the Recurring Meetings/Webinars Addon for Zoomy',
     'Monetize Meeting ADD On',
   ],
   'tutorial-extras/multiple-hosts-on-zoom': [
-    'Getting Started',
+    'Getting Started With WPZoomy Docs – Complete Guide',
     'Setting Up the Instructor Role Add On',
     'Setting up the Recurring Meetings/Webinars Addon for Zoomy',
     'How to embed Zoom Webinar on your website',
     'Embed Zoom Meeting on WordPress',
   ],
   'tutorial-basics/monetize-meeting-addon': [
-    'Getting Started',
+    'Getting Started With WPZoomy Docs – Complete Guide',
     'Creating Server-to-Server OAuth App',
     'Setting Up the Instructor Role Add On',
     'Setting up the Recurring Meetings/Webinars Addon for Zoomy',
@@ -58,19 +58,26 @@ const RELATED_BY_DOC = {
     'Embed Zoom Meeting on WordPress',
   ],
   'tutorial-basics/how-to-embed-zoom-webinar': [
-    'Getting Started',
+    'Getting Started With WPZoomy Docs – Complete Guide',
     'Creating Server-to-Server OAuth App',
     'Embedding Third-Party Tools on a Zoom Meeting Shortcode Page',
     'Embed Zoom Meeting on WordPress',
   ],
   'tutorial-basics/embed-zoom-meeting-on-wordpress': [
-    'Getting Started',
+    'Getting Started With WPZoomy Docs – Complete Guide',
     'Creating Server-to-Server OAuth App',
     'Multiple hosts on Zoom',
     'Embedding Third-Party Tools on a Zoom Meeting Shortcode Page',
     'How to embed Zoom Webinar on your website',
   ],
 
+  'tutorial-basics/setting-up-the-recurring-meetings-webinars-addon-for-zoomy': [
+    'Getting Started With WPZoomy Docs – Complete Guide',
+    'Creating Server-to-Server OAuth App',
+    'Setting Up the Instructor Role Add On',
+    'Monetize Meeting ADD On',
+    'Embed Zoom Meeting on WordPress',
+  ],
 };
 
 function getRelatedArticles(currentDocId, currentTitle) {
@@ -83,13 +90,24 @@ function getRelatedArticles(currentDocId, currentTitle) {
 }
 
 function useDocTOC() {
-  const { frontMatter, toc } = useDoc();
+  const { frontMatter, toc, metadata } = useDoc();
   const windowSize = useWindowSize();
   const hidden = frontMatter.hide_table_of_contents;
   const canRender = !hidden && toc.length > 0;
+
   // Disable default mobile TOC; use our own desktop TOC based on toc data
   const mobile = undefined;
-  const desktop = canRender ? toc : undefined;
+  let desktop = canRender ? toc : undefined;
+
+  // For "Creating Server-to-Server OAuth App" remove specific headings from TOC
+  if (desktop && metadata?.id === 'tutorial-basics/create-a-document') {
+    const blockedValues = new Set(['add scopes', 'event types']);
+    desktop = toc.filter((item) => {
+      const v = (item?.value || '').toString().trim().toLowerCase();
+      return !blockedValues.has(v);
+    });
+  }
+
   return { hidden, mobile, desktop };
 }
 
@@ -110,11 +128,38 @@ export default function DocItemLayout({ children }) {
   const sidebar = useDocsSidebar();
   const [feedback, setFeedback] = useState(null);
   const collectionName = frontMatter.collection || getCollectionFromSidebar(sidebar, metadata.id);
-  const author = frontMatter.author || 'Stephen Bowles';
+  const author = 'Team Wpzoomy';
   const updated = frontMatter.updated || 'over 2 years ago';
-  const collectionSlug = (collectionName === "Zoomy features & settings") ? "features" : "initial-setup";
+  const collectionSlug = (collectionName === "Zoomy Features & Settings") ? "features" : "initial-setup";
   const title = metadata.title || frontMatter.title || 'Documentation';
   const relatedArticles = getRelatedArticles(metadata.id || '', title);
+
+  // Open clicked article markdown images in a new tab.
+  useEffect(() => {
+    const selector =
+      '.help-center-article .theme-doc-markdown img, .help-center-article .markdown img';
+
+    const onClick = (e) => {
+      const target = e?.target;
+      if (!target?.closest) return;
+
+      const img = target.closest(selector);
+      if (!img) return;
+
+      // Prevent any parent link/navigation so only the image opens.
+      e.preventDefault?.();
+      e.stopPropagation?.();
+
+      const url = img.currentSrc || img.src;
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
+    const root = document.querySelector('.help-center-article');
+    if (!root) return;
+
+    root.addEventListener('click', onClick, true);
+    return () => root.removeEventListener('click', onClick, true);
+  }, [metadata?.id, children]);
 
 
   return (
@@ -132,25 +177,8 @@ export default function DocItemLayout({ children }) {
               <span className="help-center-doc-breadcrumb-current">{title}</span>
             </nav>
             <DocVersionBadge />
-            <div className="help-center-doc-author">
-              <span className="help-center-doc-avatar">S</span>
-              <div>
-                <div className="help-center-doc-author-line">Written by {author}</div>
-                <div className="help-center-doc-updated">Updated {updated}</div>
-              </div>
-            </div>
             {docTOC.mobile}
             <DocItemContent>{children}</DocItemContent>
-            {relatedArticles.length > 0 && (
-              <div className="help-center-doc-related">
-                <h3 className="help-center-doc-related-title">Related Articles</h3>
-                <ul className="help-center-doc-related-list">
-                  {relatedArticles.map((a, i) => (
-                    <li key={i}><Link to={a.link}>{a.title}</Link></li>
-                  ))}
-                </ul>
-              </div>
-            )}
             <div className="help-center-doc-feedback">
               <h3 className="help-center-doc-feedback-title">Did this answer your question?</h3>
               <div className="help-center-doc-feedback-buttons">

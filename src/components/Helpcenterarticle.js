@@ -93,7 +93,7 @@ export default function HelpCenterArticle({
             </div>
             <div>
               <div style={{ fontSize: '14px', fontWeight: '600', color: '#333' }}>
-                Written by {author || 'Stephen Bowles'}
+                Written By {author || 'Team WPZoomy'}
               </div>
               <div style={{ fontSize: '13px', color: '#999' }}>
                 Updated {updatedDate || 'recently'}

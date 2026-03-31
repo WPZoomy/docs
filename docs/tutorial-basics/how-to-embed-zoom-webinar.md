@@ -1,19 +1,22 @@
 ---
 sidebar_position: 6
-title: How to embed Zoom Webinar on your website
-sidebar_label: How to embed Zoom Webinar on your website
-collection: Zoomy features & settings
-author: Stephen Bowles
+title: How To Embed Zoom Webinar on Your Website
+sidebar_label: How To Embed Zoom Webinar on Your Website
+collection: Zoomy Features & Settings
+author: Teams Wpzoomy
 updated: over 11 months ago
 ---
-
 # How to embed Zoom Webinar on your website
+
+
 
 Steps to embed Zoom webinars on your website.
 
+<AuthorBlock />
+
 This post will help you embed Zoom webinar on your WordPress website. It requires that you have purchased the Webinar add on from your Zoom account and installed [Zoomy](https://wpzoomy.com/) (the Zoom WordPress Plugin).
 
-## Steps to embed Zoom webinar
+## Steps to Embed Zoom Webinar
 
 1. From your WordPress Dashboard navigate to Zoom Meetings -> Add Webinar. Once you fill in the details and click Create Webinar on this page, a shortcode will be generated on the same page which can be embedded anywhere on your site.
 

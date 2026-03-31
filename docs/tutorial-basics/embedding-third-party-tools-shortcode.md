@@ -2,14 +2,17 @@
 sidebar_position: 5
 title: Embedding Third-Party Tools on a Zoom Meeting Shortcode Page
 sidebar_label: Embedding Third-Party Tools on a Zoom Meeting Shortcode Page
-collection: Zoomy features & settings
-author: support zoomy
+collection: Zoomy Features & Settings
+author: Teams Wpzoomy
 updated: over a year ago
 ---
-
 # Embedding Third-Party Tools on a Zoom Meeting Shortcode Page
 
+
+
 Embedding Third-Party Tools on a Zoom Meeting Page
+
+<AuthorBlock />
 
 This guidance applies specifically to the page where you embed the Zoom meeting shortcode and not to other plugin pages or shortcodes.
 
@@ -21,7 +24,7 @@ This is necessary because Zoom requires cross-origin isolation to enable advance
 
 To bypass this restriction and successfully embed third-party tools on the Zoom meeting page, use the following methods:
 
-## Embedding a Third-Party Iframe on Zoom Meeting Page
+## Embedding a Third-Party I-Frame on Zoom Meeting Page
 
 ```html
 <iframe credentialless src="https://www.youtube.com/embed/1m.."></iframe>

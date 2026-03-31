@@ -1,17 +1,20 @@
 ---
 sidebar_position: 1
-title: Multiple hosts on Zoom
-sidebar_label: Multiple hosts on Zoom
-collection: Zoomy features & settings
-author: Stephen Bowles
+title: Multiple Hosts on Zoom
+sidebar_label: Multiple Hosts on Zoom
+collection: Zoomy Features & Settings
+author: Teams by Zoomy
 updated: over 2 years ago
 ---
+# Multiple Hosts on Zoom
 
-# Multiple hosts on Zoom
+
+
+<AuthorBlock />
 
 This blog is dedicated to helping you configure multiple hosts on Zoom with the [**Zoomy WordPress Plugin**](https://wpzoomy.com/). So here's how you can do that with a basic-level Zoom user.
 
-## Basic User: Multiple hosts on Zoom
+## Basic User: Multiple Hosts on Zoom
 
 **_IMPORTANT:_** _Please check the Prerequisites highlighted in the image below, you will not be able to use this feature with a Free account without a credit card. There are specific features that are only available to Pro users in Zoom like the cloud recording feature for the meeting._
 
@@ -25,7 +28,7 @@ This blog is dedicated to helping you configure multiple hosts on Zoom with the 
 
 3. Now, simply create a meeting with this host and place the meeting shortcode on any of your WordPress pages. The new host will now be able to start this meeting without the administrator.
 
-## Pro User: Multiple hosts on Zoom
+## Pro User: Multiple Hosts on Zoom
 
 **IMPORTANT:** Please note that in order to create a Pro user type user you must have purchased a [**Pro Zoom host**](https://zoom.us/pricing). If you haven't purchased a host you will not be able to use this configuration. You can see if you are eligible to create a licensed user from your main Zoom account [here](https://zoom.us/signin#/login).
 

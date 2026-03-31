@@ -4,7 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Search } from 'lucide-react';
 import { helpCenterArticles, filterArticles } from '@site/src/data/helpCenterArticles';
 
-export default function HelpCenterHero({ showTitle = true, showSearch = true, searchOnCurrentPage = false }) {
+export default function HelpCenterHero({ showTitle = true, showSearch = true, searchOnCurrentPage = false, returnTo = "/" }) {
   const { siteConfig } = useDocusaurusContext();
   const [searchQuery, setSearchQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
@@ -20,17 +20,17 @@ export default function HelpCenterHero({ showTitle = true, showSearch = true, se
       if (debounceRef.current) clearTimeout(debounceRef.current);
       debounceRef.current = setTimeout(() => {
         if (typeof window !== 'undefined') {
-          window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+          window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}&returnTo=${encodeURIComponent(returnTo)}`;
         }
       }, 400);
       return () => { if (debounceRef.current) clearTimeout(debounceRef.current); };
     }
-  }, [searchQuery, searchOnCurrentPage, hasQuery]);
+  }, [searchQuery, searchOnCurrentPage, hasQuery, returnTo]);
 
   useEffect(() => {
     if (!searchOnCurrentPage) return;
     setShowDropdown(hasQuery);
-  }, [searchQuery, searchOnCurrentPage, hasQuery]);
+  }, [searchQuery, searchOnCurrentPage, hasQuery, returnTo]);
 
   useEffect(() => {
     if (!searchOnCurrentPage || !showDropdown) return;
@@ -47,7 +47,7 @@ export default function HelpCenterHero({ showTitle = true, showSearch = true, se
     const input = e.currentTarget.querySelector('input[type="search"]');
     const q = (input && input.value ? input.value : searchQuery).trim();
     if (typeof window !== 'undefined' && q) {
-      window.location.href = `/search?q=${encodeURIComponent(q)}`;
+      window.location.href = `/search?q=${encodeURIComponent(q)}&returnTo=${encodeURIComponent(returnTo)}`;
     }
   };
 
@@ -55,11 +55,19 @@ export default function HelpCenterHero({ showTitle = true, showSearch = true, se
     <header className={`help-center-hero-block${!showTitle ? " help-center-hero-block--compact" : ""}`}>
       <div className="help-center-hero-top">
         <div className="help-center-hero-top-row">
-          <Link to="/" className="help-center-hero-link">Help Center</Link>
-        </div>
+          
+        {!showTitle && <Link to="/" className="help-center-hero-link">Zoomy Help Centre</Link>}
+</div>
       </div>
       {showTitle && (
-        <h1 className="help-center-hero-title">{siteConfig.title}</h1>
+        <h1 className="help-center-hero-title">
+          <Link
+            to="/"
+            style={{ color: 'white', textDecoration: 'none' }}
+          >
+            {siteConfig.title}
+          </Link>
+        </h1>
       )}
       {showSearch && (
         <div ref={wrapRef} style={{ position: 'relative', maxWidth: '600px' }}>

@@ -24,7 +24,7 @@
 }
 
 .breadcrumb a {
-  color: #2BA8D8;
+  color: rgb(51, 75, 250);
   text-decoration: none;
 }
 
@@ -50,6 +50,9 @@
   color: #2BA8D8;
   margin-bottom: 12px;
   display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .collectionTitle {
@@ -80,12 +83,16 @@
   height: 28px;
   border-radius: 50%;
   background: #2BA8D8;
-  color: white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 600;
+  overflow: hidden;
+}
+.collectionAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .articleList {
@@ -94,26 +101,46 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  border-top: 1px solid #e8e8e8;
+  gap: 10px;
 }
 
 .articleList li {
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid #e8e8e8;
 }
 
 .articleCard {
-  display: block;
-  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background: #f8f9fa;
   text-decoration: none;
   color: inherit;
-  transition: background 0.15s;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.articleCard::after {
+  content: '›'; /* › arrow */
+  font-size: 18px;
+  color: #2BA8D8;
+  margin-left: 16px;
+}
+
+
+.articleCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
 }
 
 .articleCard:hover {
-  background: #f8f9fa;
+  background: #e7f5ff; /* light blue hover */
+  border-color: #4DB8E8;
+  transform: translateY(-1px);
 }
 
 .articleCardTitle {
@@ -121,7 +148,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 
 .articleCardDesc {
@@ -141,7 +168,7 @@
 }
 
 .collectionFooter a {
-  color: #2BA8D8;
+  color: rgb(51, 75, 250);
   text-decoration: none;
 }
 

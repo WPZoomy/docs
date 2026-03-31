@@ -1,7 +1,7 @@
 ---
 slug: embed-meeting
 title: Embed Zoom Meeting on WordPress
-category: Zoomy features & settings
+category: Zoomy Features & Settings
 authors: [stephen-bowles]
 date: 2024-01-15
 updated: 2024-02-11

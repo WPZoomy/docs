@@ -25,7 +25,7 @@
   --ifm-color-primary-darkest: #1a8870;
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary-lightest: rgb(51, 75, 250);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 /* Blue Theme - eLearning Evolve Style */
@@ -113,7 +113,7 @@ article {
 .help-center-article .markdown h4,
 .help-center-article .markdown h5,
 .help-center-article .markdown h6 {
-  color: #14beff;
+  color: #000;
 }
 
 .help-center-article .theme-doc-markdown h1,
@@ -135,15 +135,24 @@ article {
   margin-top: 1.5rem;
 }
 
-/* Links in all 9 articles - clickable words open tab/page → #14beff */
+/* Links in all 9 articles - clickable words open tab/page → rgb(51, 75, 250) */
 .help-center-article .theme-doc-markdown a,
 .help-center-article .markdown a {
-  color: #14beff;
+  color: rgb(51, 75, 250);
 }
 .help-center-article .theme-doc-markdown a:hover,
 .help-center-article .markdown a:hover {
-  color: #0ea5e9;
+  color: rgb(51, 75, 250);
   text-decoration: underline;
+}
+
+
+/* Article images: constrain size (60% width, auto height) */
+.help-center-article .theme-doc-markdown img,
+.help-center-article .markdown img {
+  width: 80% !important;
+  height: auto !important;
+  max-width: 80% !important;
 }
 
 /* Lists Styling */
@@ -173,6 +182,10 @@ article li {
 }
 
 /* ========== Intercom-style Help Center ========== */
+.navbar__title {
+  display: none !important;
+}
+
 .navbar {
   background: linear-gradient(135deg, #4DB8E8 0%, #2BA8D8 100%) !important;
   box-shadow: none;
@@ -187,13 +200,14 @@ article li {
   color: white;
 }
 
-/* Hide navbar logo and "Help Center" text (hero has its own; keep All Collections link) */
-.navbar__brand {
+/* Hide only navbar logo (keep "Help Center" text and All Collections link on non-home pages) */
+.navbar__logo {
   display: none !important;
 }
 
 /* Hide default navbar on Help Center home (custom hero used) */
-.help-center-home .navbar {
+.help-center-home .navbar,
+.page-home .navbar {
   display: none !important;
 }
 
@@ -318,7 +332,7 @@ article li {
 }
 .help-center-hero-search-dropdown-link:hover {
   background: #f5f5f5;
-  color: #14beff;
+  color: rgb(51, 75, 250);
 }
 
 /* Hide navbar on collection pages (custom hero used) */
@@ -334,6 +348,12 @@ article li {
 .help-center-doc-page .navbar {
   display: none !important;
 }
+
+/* Hide Docusaurus “Edit this page” on doc pages */
+.help-center-doc-page .theme-edit-this-page,
+.help-center-doc-page .theme-edit-this-page-container {
+  display: none !important;
+}
 .help-center-doc-footer {
   padding: 20px 40px;
   background: #f5f5f5;
@@ -343,7 +363,7 @@ article li {
   text-align: center;
 }
 .help-center-doc-footer a {
-  color: #2BA8D8;
+  color: rgb(51, 75, 250);
   text-decoration: none;
 }
 .help-center-doc-footer-sep { margin: 0 6px; }
@@ -356,7 +376,7 @@ article li {
   margin-bottom: 16px;
 }
 .help-center-doc-breadcrumb a {
-  color: #2BA8D8;
+  color: rgb(51, 75, 250);
   text-decoration: none;
 }
 .help-center-doc-breadcrumb a:hover { text-decoration: underline; }
@@ -381,13 +401,17 @@ article li {
   height: 40px;
   border-radius: 50%;
   background: #2BA8D8;
-  color: white;
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.help-center-doc-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 .help-center-doc-author-line {
   font-size: 14px;
@@ -402,27 +426,54 @@ article li {
 .help-center-doc-related {
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid #eee;
+  border-top: 0;
 }
+
 .help-center-doc-related-title {
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 16px 0;
   color: #1a1a1a;
 }
+
 .help-center-doc-related-list {
   list-style: none;
-  padding: 0;
+  padding: 12px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+}
+
+.help-center-doc-related-list li {
   margin: 0;
 }
-.help-center-doc-related-list li {
-  margin: 0 0 10px 0;
-}
-.help-center-doc-related-list a {
-  color: #2BA8D8;
+
+.help-center-doc-related-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 10px;
   text-decoration: none;
+  color: #1a1a1a;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
-.help-center-doc-related-list a:hover { text-decoration: underline; }
+
+.help-center-doc-related-link::after {
+  content: '›';
+  color: rgb(51, 75, 250);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* First item looks highlighted like your screenshot */
+
+.help-center-doc-related-link:hover {
+  background: #e7f5ff;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
 .help-center-doc-feedback {
   margin-top: 32px;
   padding: 24px;
@@ -451,6 +502,7 @@ article li {
 }
 .help-center-doc-feedback-buttons button:hover {
   transform: scale(1.15);
+  filter: brightness(1.1);
 }
 .help-center-doc-feedback-buttons button.help-center-doc-feedback-active {
   filter: brightness(1.1);
@@ -495,17 +547,17 @@ article li {
   scroll-margin-top: 140px;
 }
 
-/* Sidebar (docs nav) - same as TOC: hover & active #14beff */
+/* Sidebar (docs nav) - same as TOC: hover & active rgb(51, 75, 250) */
 .theme-doc-sidebar-container .menu__link:hover,
 [class*="sidebar_njMd"] .menu__link:hover,
 .theme-doc-sidebar-container .menu__link--active,
 [class*="sidebar_njMd"] .menu__link--active {
-  color: #14beff !important;
+  color: rgb(51, 75, 250) !important;
 }
 
 /* Pagination nav label (Previous / Next) */
 .pagination-nav__label {
-  color: #14beff !important;
+  color: rgb(51, 75, 250) !important;
 }
 
 /* Hide dark mode icon in color toggle (only Light + System) */
@@ -521,7 +573,7 @@ article li {
   color: #1a1a1a !important;
 }
 [data-theme="dark"] .help-center-article a {
-  color: #14beff !important;
+  color: rgb(51, 75, 250) !important;
 }
 
 /* Hide doc sidebar on help center doc pages */
@@ -619,6 +671,24 @@ article li {
     max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
+  .theme-doc-toc-desktop::-webkit-scrollbar {
+    width: 6px;
+  }
+  .theme-doc-toc-desktop::-webkit-scrollbar-track {
+    background: #f0f0f0; /* thin light grey track like reference */
+  }
+  .theme-doc-toc-desktop::-webkit-scrollbar-thumb {
+    background: #888;    /* darker grey thumb */
+    border-radius: 999px;
+  }
+  .theme-doc-toc-desktop::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .theme-doc-toc-desktop {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0; /* Firefox: thumb + track colors */
+  }
 
   .table-of-contents,
   .table-of-contents ul {
@@ -630,13 +700,13 @@ article li {
     padding: var(--ifm-toc-padding-vertical) 0;
     margin-bottom: 0;
     font-size: var(--ifm-toc-font-size, 0.95rem);
-    line-height: 1.45;
+    line-height: 1.55; /* a bit more breathing room */
     margin: 0;
-    border-left: 1px solid var(--ifm-toc-border-color, #e5e7eb);
+    border-left: none; /* remove TOC left border for cleaner look */
   }
 
   .table-of-contents__item {
-    margin: 0.35rem 0;
+    margin: 0.75rem 0; /* even more vertical space between items */
   }
 
   .table-of-contents__link {
@@ -647,7 +717,25 @@ article li {
   }
 
   .table-of-contents__link:hover {
-    color: #14beff;
+    color: rgb(51, 75, 250);
   }
 }
 
+
+
+/* Articles pages: remove TOC vertical bar completely */
+.help-center-doc-page .table-of-contents__left-border,
+.help-center-doc-page .table-of-contents,
+.help-center-doc-page .table-of-contents ul {
+  border-left: none !important;
+}
+
+
+/* Article pages: prevent bottom horizontal scrollbar */
+.help-center-doc-page,
+.help-center-doc-page .theme-layout-main,
+.help-center-doc-page [class*="docMainContainer"],
+.help-center-doc-page [class*="docMainContainer"] .container,
+.help-center-doc-page [class*="docMainContainer"] .container .row {
+  overflow-x: hidden !important;
+}

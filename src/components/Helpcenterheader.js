@@ -41,7 +41,6 @@ export default function HelpCenterHeader({ onSearch, onLanguageChange }) {
             fontSize: '24px',
             fontWeight: '600'
           }}>
-            Help Center
           </h1>
 
           {/* Language Selector */}

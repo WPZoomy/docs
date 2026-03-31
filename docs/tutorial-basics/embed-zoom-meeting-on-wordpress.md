@@ -2,18 +2,21 @@
 sidebar_position: 7
 title: Embed Zoom Meeting on WordPress
 sidebar_label: Embed Zoom Meeting on WordPress
-collection: Zoomy features & settings
-author: Stephen Bowles
+collection: Zoomy Features & Settings
+author: Teams Wpzoomy
 updated: over a year ago
 ---
-
 # Embed Zoom Meeting on WordPress
+
+
 
 How to add a zoom meeting to your Wordpress posts or pages using Zoomy.
 
+<AuthorBlock />
+
 The [**Zoom WordPress Plugin**](https://wpzoomy.com/) v4.5.0 adds a user-friendly way to embed Zoom Meeting/Webinar right from your WordPress editor.
 
-## 1. Gutenberg Block to Embed Zoom Meeting
+## 1. Gutenberg Block To Embed Zoom Meeting
 
 a. A gutenberg block has been added under the EMBEDS category to embed the Zoom Meeting/Webinar on the frontend. Simply select whether you want to embed a Meeting or a Webinar and paste your Zoom Meeting ID in the text field. Now save and view the Zoom meeting window on the frontend.
 

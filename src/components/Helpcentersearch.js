@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import { Search, ArrowRight } from 'lucide-react';
 import { helpCenterArticles, filterArticles } from '@site/src/data/helpCenterArticles';
 
-export default function HelpCenterSearch({ query = '' }) {
+export default function HelpCenterSearch({ query = '', returnTo = '/' }) {
   const [searchQuery, setSearchQuery] = useState(query);
   useEffect(() => {
     setSearchQuery(query);
@@ -34,7 +34,7 @@ const filteredArticles = useMemo(() => filterArticles(helpCenterArticles, search
               display: 'inline-block'
             }}
           >
-            Help Center
+            
           </Link>
 
           {/* Search Bar */}
@@ -77,7 +77,13 @@ const filteredArticles = useMemo(() => filterArticles(helpCenterArticles, search
             {searchQuery.trim() && (
               <button
                 type="button"
-                onClick={() => setSearchQuery('')}
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.location.href = returnTo;
+                    return;
+                  }
+                  setSearchQuery('');
+                }}
                 aria-label="Clear search"
                 title="Clear"
                 style={{

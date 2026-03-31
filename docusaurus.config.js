@@ -3,9 +3,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Zoomy Documentation',
+  title: 'Zoomy Help Centre',
   tagline: 'Search for articles...',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   future: {
     v4: true,
@@ -47,7 +47,7 @@ const config = {
         link: '/collections/initial-setup',
       },
       {
-        title: 'Zoomy features & settings',
+        title: 'Zoomy Features & Settings',
         description: 'Learn how to use the various features of Zoomy',
         authorCount: 2,
         articleCount: 7,
@@ -86,16 +86,22 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/docusaurus-social-card.jpg',
+      metadata: [
+        {
+          name: 'google-site-verification',
+          content: 'lZIxHXWM-7gFvK0PrOd0zEt7AWFufFxk7tXM_JJSoUs',
+        },
+      ],
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Help Center',
+        title: 'Zoomy',
         hideOnScroll: false,
         logo: {
-          alt: 'Help Center',
+          alt: 'Zoomy',
           src: 'img/logo.svg',
           href: '/',
         },
@@ -106,7 +112,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: 'Help Center',
+        copyright: 'Zoomy',
       },
       prism: {
         theme: prismThemes.github,

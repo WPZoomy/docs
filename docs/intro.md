@@ -1,32 +1,35 @@
 ---
 sidebar_position: 1
-title: Getting Started
+title: Getting Started With WPZoomy Docs – Complete Guide
 collection: Initial Setup
-author: Stephen Bowles
+author: Teams Wpzoomy
 updated: over 2 years ago
 ---
+# Getting Started With WPZoomy Docs – Complete Guide
 
-# Getting Started
+
 
 We will walk you through the process of connecting your Zoom account with your Zoomy Wordpress plugin on your website.
 
-## 1. Sign up for a Zoom Account
+<AuthorBlock />
+
+## 1. Sign Up For a Zoom Account
 
 If you haven't already, start by signing up for a Zoom account. Visit the Zoom website ([zoom.us](https://zoom.us)) and choose the plan that best suits your needs. Zoom offers a range of plans, including a free basic plan and various paid options with additional features and capabilities.
 
-## 2. Install the Zoomy Wordpress plugin
+## 2. Install The Zoomy Wordpress Plugin
 
 Zoomy allows you to embed your Zoom meetings, webinars, and recordings directly onto your site and manage Zoom meetings from your WordPress dashboard.
 
-1. You can purchase a Zoomy license [here](https://www.codeboxr.com/product/zoomy-wordpress-zoom-integration/).
+1. You can purchase a Zoomy license [here](https://zoom.us/signin#/login).
 2. Upload and activate the Zoomy plugin zip file into your Wordpress admin's plugin section.
 3. Register your Zoomy license.
 
-## 3. Create a Server-to-Server OAuth App with Zoom
+## 3. Create a Server-to-Server OAuth App With Zoom
 
 To integrate Zoom with your WordPress site, you'll need to generate API credentials from your Zoom account. We have a detailed guide [here](/docs/tutorial-basics/create-a-document) to help you with this.
 
-## 4. Add API credentials to the Zoomy plugin
+## 4. Add API Credentials To The Zoomy Plugin
 
 In your Zoomy plugin settings, locate the section for Server-to-Server OAuth app credentials in the plugin settings and enter the keys obtained in the previous step. Save the settings to establish the connection between your Zoomy WordPress site and Zoom's API.
 
@@ -44,7 +47,7 @@ There are tons of other advanced options to tightly integrate Zoom into your sit
 
 ![Auto Join mode](/img/wordpress-zoom-integration-auto-join-mode.png)
 
-## 7. Testing Zoom on website
+## 7. Testing Zoom on Website
 
 Before launching your integrated Zoom event, it's crucial to thoroughly test it. Create a test meeting or webinar and register as a participant to ensure that the registration process, meeting link, and email notifications are functioning correctly. Test various features, such as screen sharing, chat, and Q&A, to ensure a smooth experience for your attendees.
 

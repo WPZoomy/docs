@@ -1,7 +1,7 @@
 ---
 slug: recurring-meetings
 title: Setting up the Recurring Meetings/Webinars Addon for Zoomy
-category: Zoomy features & settings
+category: Zoomy Features & Settings
 authors: [stephen-bowles]
 date: 2024-01-15
 updated: 2024-02-11

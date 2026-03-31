@@ -13,7 +13,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Zoomy features & settings',
+      label: 'Zoomy Features & Settings',
       link: { type: 'doc', id: 'tutorial-basics/setting-up-instructor-role-addon' },
       items: [
         'tutorial-basics/setting-up-instructor-role-addon',
@@ -23,12 +23,6 @@ const sidebars = {
         'tutorial-basics/embedding-third-party-tools-shortcode',
         'tutorial-basics/how-to-embed-zoom-webinar',
         'tutorial-basics/embed-zoom-meeting-on-wordpress',
-        'tutorial-extras/manage-docs-versions',
-        'tutorial-extras/translate-your-site',
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/deploy-your-site',
-        'tutorial-basics/congratulations',
       ],
     },
   ],
