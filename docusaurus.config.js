@@ -32,6 +32,7 @@ const config = {
         redirects: [
           { from: '/docs/category/tutorial---basics', to: '/collections/features' },
           { from: '/docs/category/tutorial---extras', to: '/collections/features' },
+          { from: '/docs/tutorial-basics/create-a-document', to: '/docs/tutorial-basics/creating-server-to-server-oauth-app' },
         ],
       },
     ],
