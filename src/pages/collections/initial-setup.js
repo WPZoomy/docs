@@ -18,7 +18,7 @@ const collection = {
     {
       title: 'Creating Server-to-Server OAuth App',
       description: 'This is a step-by-step guide to help you setup create a Zoom App to integrate with the Zoomy plugin.',
-      link: '/docs/tutorial-basics/create-a-document',
+      link: '/docs/tutorial-basics/creating-server-to-server-oauth-app',
     },
   ],
 };
