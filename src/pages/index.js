@@ -104,7 +104,16 @@ export default function Home() {
           <div className={styles.collectionGrid}>
             {collectionsWithIcons.map((col, i) => (
               <CollectionCard key={i} {...col} />
-            ))}
+              ))}
+
+              <CollectionCard
+              title="Additional Guide"
+              description="WordPress Zoom guides and resources"
+              authorCount={1}
+              articleCount={1}
+              link="https://elearningevolve.com/blog/category/wordpress/zoom/"
+              iconSrc="/img/zoomy-features.svg"
+            />
           </div>
         </main>
         <footer className={styles.helpCenterFooter}>
