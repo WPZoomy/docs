@@ -47,7 +47,7 @@ export default function Home() {
   }, [searchQuery]);
   const collections = siteConfig.customFields?.collections || [
     { title: 'Initial Setup', description: 'Connecting your Zoom account with Zoomy', authorCount: 1, articleCount: 2, link: '/docs/intro' },
-    { title: 'Zoomy features&settings', description: 'Learn how to use the various features of Zoomy', authorCount: 2, articleCount: 7, link: '/docs/tutorial-basics/create-a-document' },
+    { title: 'Zoomy features&settings', description: 'Learn how to use the various features of Zoomy', authorCount: 2, articleCount: 7, link: '/docs/tutorial-basics/creating-server-to-server-oauth-app' },
   ];
 
   const collectionsWithIcons = collections.map((c) => ({

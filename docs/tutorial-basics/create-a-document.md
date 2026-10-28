@@ -3,6 +3,7 @@ sidebar_position: 2
 title: Creating Server-to-Server OAuth App
 sidebar_label: Creating Server-to-Server OAuth App
 collection: Initial Setup
+slug: /tutorial-basics/creating-server-to-server-oauth-app
 author: Teams Wpzoomy
 updated: over 11 months ago
 ---

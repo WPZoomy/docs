@@ -27,7 +27,7 @@ Zoomy allows you to embed your Zoom meetings, webinars, and recordings directly 
 
 ## 3. Create a Server-to-Server OAuth App With Zoom
 
-To integrate Zoom with your WordPress site, you'll need to generate API credentials from your Zoom account. We have a detailed guide [here](/docs/tutorial-basics/create-a-document) to help you with this.
+To integrate Zoom with your WordPress site, you'll need to generate API credentials from your Zoom account. We have a detailed guide [here](/docs/tutorial-basics/creating-server-to-server-oauth-app) to help you with this.
 
 ## 4. Add API Credentials To The Zoomy Plugin
 

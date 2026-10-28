@@ -15,7 +15,7 @@ import styles from './styles.module.css';
 
 const ALL_ARTICLES = [
   { title: 'Getting Started With WPZoomy Docs – Complete Guide', link: '/docs/intro' },
-  { title: 'Creating Server-to-Server OAuth App', link: '/docs/tutorial-basics/create-a-document' },
+  { title: 'Creating Server-to-Server OAuth App', link: '/docs/tutorial-basics/creating-server-to-server-oauth-app' },
   { title: 'Multiple hosts on Zoom', link: '/docs/tutorial-extras/multiple-hosts-on-zoom' },
   { title: 'Setting up the Recurring Meetings/Webinars Addon for Zoomy', link: '/docs/tutorial-basics/setting-up-the-recurring-meetings-webinars-addon-for-zoomy' },
   { title: 'How to embed Zoom Webinar on your website', link: '/docs/tutorial-basics/how-to-embed-zoom-webinar' },
